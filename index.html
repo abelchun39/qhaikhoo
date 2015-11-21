@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>tomotime</title>
+      <script src="howler.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+   </head>
+   <body>
+      <!--primary riggers-->
+      <li><button href="#" class="button" id="pomodoro" type="submit" value="Pomodoro">Pomodoro</button></li>
+      <li><button href="#" class="button" id="short_break" type="submit" value="Short Break">Short Break</button></li>
+      <li><button href="#" class="button" id="long_break" type="submit" value="Long Break">Long Break</button></li>
+      <!--timer num -->
+      <div id='default_container'>
+         <h1 id="timer_default"></h1>
+         <br />
+      </div>
+      <!--secondary triggers-->
+      <button  href="#" id="timer_start" type="submit" value="Start">Start</button>
+      <button  href="#"id="timer_pause" type="submit" value="Stop">Stop</button>
+      <button id="timer_reset" type="submit" value="Reset">Reset</button>
+      <button href="#" onclick="permit();" class="small button">trigger notification</button>
+      <!--javascript-->
+      <script type='text/javascript' src="jquery.colorbox-min.html"></script> 
+      <script type='text/javascript' src="jquery.the_final_countdown.js"></script>
+      <script type='text/javascript' src="notify.js"></script> 
+      <script type='text/javascript' src="tomato.js"></script>
+      <script type="text/javascript">
+         var _gaq = _gaq || [];
+         _gaq.push(['_setAccount', 'UA-18513817-1']);
+         _gaq.push(['_trackPageview']);
+         
+         (function() {
+           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+         
+         function saveSETTINGS() {
+           var snd = $('#alertoption').val();
+           var vol = $('#volume').val();
+           localStorage.setItem("alertoption",snd);
+           localStorage.setItem("volumeoption",vol);
+         }
+         
+         function resetSETTINGS() {
+           localStorage.setItem("alertoption","alarmwatch");
+           localStorage.setItem("volumeoption",0.5);
+           $("#alertoption").val("alarmwatch");
+           $("#volume").val(0.5);
+         }
+      </script>
+   </body>
